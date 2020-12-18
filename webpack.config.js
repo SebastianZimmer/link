@@ -16,17 +16,22 @@ module.exports = {
           {
             loader: 'postcss-loader',
             options: {
-              plugins: [
-                require('postcss-nested-ancestors'),
-                require('postcss-nested')
-              ]
+              postcssOptions: {
+                plugins: [
+                  'postcss-nested-ancestors',
+                  'postcss-nested'
+                ]
+              }
             }
           }
         ]
       },
       {
         test: /\.svg$/,
-        loader: 'svg-inline-loader?removeSVGTagAttrs=false'
+        loader: 'svg-inline-loader',
+        options: {
+          removeSVGTagAttrs: false
+        }
       }
     ]
   },
