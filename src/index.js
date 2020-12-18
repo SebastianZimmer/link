@@ -78,6 +78,7 @@ export default class LinkTool {
      */
     this.config = {
       endpoint: config.endpoint || '',
+      additionalRequestHeaders: config.additionalRequestHeaders || {},
     };
 
     this.nodes = {
@@ -385,6 +386,7 @@ export default class LinkTool {
     try {
       const { body } = await (ajax.get({
         url: this.config.endpoint,
+        headers: this.config.additionalRequestHeaders,
         data: {
           url,
         },
